@@ -61,7 +61,7 @@ import {
     render() {
       return (
         <div>
-          <div class="navigation">
+          <div className="navigation">
           <Navbar color="" light expand="md">
             <NavbarBrand href="/">Blog</NavbarBrand>
             <NavbarToggler onClick={this.toggle} />
@@ -79,10 +79,10 @@ import {
                   </DropdownToggle>
                   <DropdownMenu right>
                     <DropdownItem>
-                      Option 1
+                     Create New Post
                     </DropdownItem>
                     <DropdownItem>
-                      Option 2
+                      Create new Cateogry
                     </DropdownItem>
                     <DropdownItem divider />
                     <DropdownItem>
@@ -94,7 +94,7 @@ import {
             </Collapse>
           </Navbar>
         
-        </div>  <div class="jumbatron">
+        </div>  <div className="jumbatron">
       <Jumbotron fluid>
         <Container fluid>
           <h1 className="display-3">Fluid jumbotron</h1>
@@ -102,7 +102,7 @@ import {
         </Container>
       </Jumbotron>
     </div>
-        <div class="carousel-class">
+        <div className="carousel-class">
         <UncontrolledCarousel items={items}  indicators={false}/>
         </div>
         </div>

@@ -5,7 +5,7 @@ import { ListGroup, ListGroupItem, Badge } from 'reactstrap';
 export default class Side extends Component{
     render(){
         return(
-            <div class="side">
+            <div className="side">
             <h1>Categories</h1>
                   <ListGroup>
         <ListGroupItem className="justify-content-between">Cras justo odio <Badge pill>14</Badge></ListGroupItem>

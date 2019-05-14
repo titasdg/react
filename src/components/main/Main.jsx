@@ -13,7 +13,7 @@ import Side from './side/Side';
           <Col xs="6" sm="8">
             <Row>
                 <Col xs="12" sm="6">
-                    <div class="post">
+                    <div className="post">
                         <Card>
                             <CardImg top width="100%" src="http://blog.via.com/wp-content/uploads/2015/12/Optimized-South.jpg" alt="Card image cap" />
                             <CardBody>
@@ -26,7 +26,7 @@ import Side from './side/Side';
                     </div>
                 </Col>
                 <Col xs="12" sm="6">
-                    <div class="post">
+                    <div className="post">
                         <Card>
                             <CardImg top width="100%" src="http://blog.via.com/wp-content/uploads/2015/12/Optimized-South.jpg" alt="Card image cap" />
                             <CardBody>
@@ -39,7 +39,7 @@ import Side from './side/Side';
                     </div>
                 </Col>
                 <Col xs="12" sm="6">
-                    <div class="post">
+                    <div className="post">
                         <Card>
                             <CardImg top width="100%" src="http://blog.via.com/wp-content/uploads/2015/12/Optimized-South.jpg" alt="Card image cap" />
                             <CardBody>
@@ -52,7 +52,7 @@ import Side from './side/Side';
                     </div>
                 </Col>
                 <Col xs="12" sm="6">
-                    <div class="post">
+                    <div className="post">
                         <Card>
                             <CardImg top width="100%" src="http://blog.via.com/wp-content/uploads/2015/12/Optimized-South.jpg" alt="Card image cap" />
                             <CardBody>
@@ -65,7 +65,7 @@ import Side from './side/Side';
                     </div>
                 </Col>
                 <Col xs="12" sm="6">
-                    <div class="post">
+                    <div className="post">
                         <Card>
                             <CardImg top width="100%" src="http://blog.via.com/wp-content/uploads/2015/12/Optimized-South.jpg" alt="Card image cap" />
                             <CardBody>
@@ -78,7 +78,7 @@ import Side from './side/Side';
                     </div>
                 </Col>
                 <Col xs="12" sm="6">
-                    <div class="post">
+                    <div className="post">
                         <Card>
                             <CardImg top width="100%" src="http://blog.via.com/wp-content/uploads/2015/12/Optimized-South.jpg" alt="Card image cap" />
                             <CardBody>
