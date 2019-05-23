@@ -3,103 +3,46 @@ import {  Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button, Row, Col } from 'reactstrap';
 import styles from './main.scss';
 import Side from './side/Side';
+import Post from '../post/Post';
+import postData from '../../data/PostData';
+import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 
+ class Main extends Component {  	
 
- class Main extends Component {
+     constructor(){
+         super()
+         this.state={
+            posts:[]
+         }
+     }
+     componentDidMount() {
+        fetch("http://laravel.local/api/post")
+            .then(response => response.json())
+            .then(data => {
+                this.setState({
+                    posts: data
+                })
+            })
+    }
     render(){
+        const postComponents = this.state.posts.map(post=>{
+            return(
+                <Post id={post.id} title={post.title} content={post.content} />
+            )
+        });
         return(
             <div>
-                <Row>
-          <Col xs="6" sm="8">
-            <Row>
-                <Col xs="12" sm="6">
-                    <div className="post">
-                        <Card>
-                            <CardImg top width="100%" src="http://blog.via.com/wp-content/uploads/2015/12/Optimized-South.jpg" alt="Card image cap" />
-                            <CardBody>
-                            <CardTitle>Card title</CardTitle>
-                            <CardSubtitle>Card subtitle</CardSubtitle>
-                            <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                            <Button>Button</Button>
-                            </CardBody>
-                        </Card>
-                    </div>
-                </Col>
-                <Col xs="12" sm="6">
-                    <div className="post">
-                        <Card>
-                            <CardImg top width="100%" src="http://blog.via.com/wp-content/uploads/2015/12/Optimized-South.jpg" alt="Card image cap" />
-                            <CardBody>
-                            <CardTitle>Card title</CardTitle>
-                            <CardSubtitle>Card subtitle</CardSubtitle>
-                            <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                            <Button>Button</Button>
-                            </CardBody>
-                        </Card>
-                    </div>
-                </Col>
-                <Col xs="12" sm="6">
-                    <div className="post">
-                        <Card>
-                            <CardImg top width="100%" src="http://blog.via.com/wp-content/uploads/2015/12/Optimized-South.jpg" alt="Card image cap" />
-                            <CardBody>
-                            <CardTitle>Card title</CardTitle>
-                            <CardSubtitle>Card subtitle</CardSubtitle>
-                            <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                            <Button>Button</Button>
-                            </CardBody>
-                        </Card>
-                    </div>
-                </Col>
-                <Col xs="12" sm="6">
-                    <div className="post">
-                        <Card>
-                            <CardImg top width="100%" src="http://blog.via.com/wp-content/uploads/2015/12/Optimized-South.jpg" alt="Card image cap" />
-                            <CardBody>
-                            <CardTitle>Card title</CardTitle>
-                            <CardSubtitle>Card subtitle</CardSubtitle>
-                            <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                            <Button>Button</Button>
-                            </CardBody>
-                        </Card>
-                    </div>
-                </Col>
-                <Col xs="12" sm="6">
-                    <div className="post">
-                        <Card>
-                            <CardImg top width="100%" src="http://blog.via.com/wp-content/uploads/2015/12/Optimized-South.jpg" alt="Card image cap" />
-                            <CardBody>
-                            <CardTitle>Card title</CardTitle>
-                            <CardSubtitle>Card subtitle</CardSubtitle>
-                            <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                            <Button>Button</Button>
-                            </CardBody>
-                        </Card>
-                    </div>
-                </Col>
-                <Col xs="12" sm="6">
-                    <div className="post">
-                        <Card>
-                            <CardImg top width="100%" src="http://blog.via.com/wp-content/uploads/2015/12/Optimized-South.jpg" alt="Card image cap" />
-                            <CardBody>
-                            <CardTitle>Card title</CardTitle>
-                            <CardSubtitle>Card subtitle</CardSubtitle>
-                            <CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
-                            <Button>Button</Button>
-                            </CardBody>
-                        </Card>
-                    </div>
-                </Col>
-               
-           
-            </Row>
               
-          </Col>
+          
+           <Row>
          
-          <Col xs="6" sm="4"><Side/></Col>
-                 </Row>
-
-
+             {postComponents}
+           
+          
+        
+               </Row> 
+        
+         
 
             </div>
 
