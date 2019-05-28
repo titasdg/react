@@ -14,12 +14,15 @@ import {  Card, CardImg, CardText, CardBody,
            comments:[],
            likes:[],
            show:true,
-           update:false
+           name: '',
+           comment: ''
       
         }
+     
         this.handdleComment=this.handdleComment.bind(this)
         this.handdleClick = this.handdleClick.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.addComment = this.addComment.bind(this);
     }
     componentDidMount() {
         const { id } = this.props.match.params;
@@ -53,43 +56,47 @@ import {  Card, CardImg, CardText, CardBody,
                         {
                        
                         comments:data.comments,
-                        update:!update
                     })
-                    
                 })
-        
                 }
-      
-
         }
          
-   
-   
+        handleChange (event) {
+            this.setState( {[event.target.name]: event.target.value} )
+           
+          }
    handleSubmit(event) {
     const { id } = this.props.match.params;
-    const { show } = this.state;
-    const { update } = this.state;
+    const { show,name,comment } = this.state;
+
+    let comments={"name":name,"comment":comment,"post_id":id};
+    console.log(name,comment);
+    console.log(comments);
     
     event.preventDefault();
     let data = new FormData(event.target);
     data.append('post_id',id);
-   
+
     fetch('http://laravel.local/api/add-comment', {
       method: 'POST',
       body: data,
     }).then(
+        this.addComment(comments),
         this.setState(
             {
                 show:!show,
-                update:true
-                
-                }
+            }
         )
-      
     )
     console.log(show);  
     //this.setState() 
     }
+    addComment(comment) {
+        this.setState({
+          loading: false,
+          comments: [comment, ...this.state.comments]
+        });
+      }
 
    handdleComment=()=>{
       const { show } = this.state;
@@ -131,9 +138,9 @@ import {  Card, CardImg, CardText, CardBody,
                                 {this.state.show &&  
                                             <form onSubmit={this.handleSubmit}>
                                                 
-                                            <input id="name" name="name" type="text" placeholder="name" />
+                                            <input id="name" name="name" type="text" placeholder="name" onChange={event => this.handleChange(event)}/>
                                           
-                                            <input id="comment" name="comment" type="text" placeholder="Comment" />
+                                            <input id="comment" name="comment" type="text" placeholder="Comment" onChange={event => this.handleChange(event)}/>
 
                                             <button>Send data!</button>
                                             </form>}
